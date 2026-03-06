@@ -38,11 +38,9 @@ the intersection of DataFrame columns and `DEFAULT_CAPABILITIES` in that exact o
 ## Development
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-pytest
-python -m build
-twine check dist/*
+uv sync --extra dev
+uv run pytest
+uv run python -m build
+uv run twine check dist/*
 ```
 
