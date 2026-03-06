@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "adele-plot"
+version = "0.1.0"
+description = "ADeLe plotting utilities for radial response visualizations."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "ADeLe contributors" }]
+keywords = ["adele", "plotting", "matplotlib", "visualization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6", "build>=1.2.2", "twine>=6.1.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/adele_plot"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/adele_plot", "tests", "examples", "README.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
